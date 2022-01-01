@@ -34,6 +34,14 @@ func ConfigRoutes(router *gin.Engine) *gin.Engine {
 			provider.PUT("/", controllers.UpdateProvider)
 			provider.DELETE("/:id", controllers.DeleteProvider)
 		}
+		cost := main.Group("cost")
+		{
+			cost.GET("/", controllers.ShowAllCost)
+			cost.GET("/:id", controllers.ShowCost)
+			cost.POST("/", controllers.CreateCost)
+			cost.PUT("/", controllers.UpdateCost)
+			cost.DELETE("/:id", controllers.DeleteCost)
+		}
 	}
 
 	return router

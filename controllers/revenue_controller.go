@@ -73,23 +73,22 @@ func CreateRevenue(c *gin.Context) {
 }
 
 func UpdateRevenue(c *gin.Context) {
-	id := c.Param("id")
-	newid, err := strconv.Atoi(id)
+	db := database.GetDatabase()
 
+	var p models.Revenue
+
+	err := c.ShouldBindJSON(&p)
 	if err != nil {
 		c.JSON(400, gin.H{
-			"error": "ID has to be integer",
+			"error": "cannot bind JSON: " + err.Error(),
 		})
 		return
 	}
 
-	db := database.GetDatabase()
-	var p models.Revenue
-	err = db.First(&p, newid).Error
-
+	err = db.Save(&p).Error
 	if err != nil {
 		c.JSON(400, gin.H{
-			"error": "cannot find product by id: " + err.Error(),
+			"error": "cannot create book: " + err.Error(),
 		})
 		return
 	}

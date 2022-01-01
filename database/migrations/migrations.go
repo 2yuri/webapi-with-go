@@ -8,4 +8,5 @@ import (
 func RunMigrations(db *gorm.DB) {
 	db.AutoMigrate(models.Revenue{})
 	db.AutoMigrate(models.CostCategory{})
+	db.AutoMigrate(models.Provider{})
 }

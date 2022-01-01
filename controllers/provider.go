@@ -8,9 +8,9 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func ShowAllCostCategories(c *gin.Context) {
+func ShowAllProvider(c *gin.Context) {
 	db := database.GetDatabase()
-	var p []models.CostCategory
+	var p []models.Provider
 	err := db.Find(&p).Error
 
 	if err != nil {
@@ -23,7 +23,7 @@ func ShowAllCostCategories(c *gin.Context) {
 	c.JSON(200, p)
 }
 
-func ShowCostCategory(c *gin.Context) {
+func ShowProviders(c *gin.Context) {
 	id := c.Param("id")
 	newid, err := strconv.Atoi(id)
 
@@ -35,7 +35,7 @@ func ShowCostCategory(c *gin.Context) {
 	}
 
 	db := database.GetDatabase()
-	var p models.CostCategory
+	var p models.Provider
 	err = db.First(&p, newid).Error
 
 	if err != nil {
@@ -48,10 +48,10 @@ func ShowCostCategory(c *gin.Context) {
 	c.JSON(200, p)
 }
 
-func CreateCostCategory(c *gin.Context) {
+func CreateProvider(c *gin.Context) {
 	db := database.GetDatabase()
 
-	var p models.CostCategory
+	var p models.Provider
 
 	err := c.ShouldBindJSON(&p)
 	if err != nil {
@@ -72,10 +72,10 @@ func CreateCostCategory(c *gin.Context) {
 	c.JSON(200, p)
 }
 
-func UpdateCostCategory(c *gin.Context) {
+func UpdateProvider(c *gin.Context) {
 	db := database.GetDatabase()
 
-	var p models.CostCategory
+	var p models.Provider
 
 	err := c.ShouldBindJSON(&p)
 	if err != nil {
@@ -96,7 +96,7 @@ func UpdateCostCategory(c *gin.Context) {
 	c.JSON(200, p)
 }
 
-func DeleteCostCategory(c *gin.Context) {
+func DeleteProvider(c *gin.Context) {
 	id := c.Param("id")
 	newid, err := strconv.Atoi(id)
 
@@ -109,7 +109,7 @@ func DeleteCostCategory(c *gin.Context) {
 
 	db := database.GetDatabase()
 
-	err = db.Delete(&models.CostCategory{}, newid).Error
+	err = db.Delete(&models.Provider{}, newid).Error
 
 	if err != nil {
 		c.JSON(400, gin.H{

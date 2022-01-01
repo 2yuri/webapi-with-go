@@ -5,8 +5,8 @@ services:
     build:
       context: .
       dockerfile: .dockerfile
-    image: github.com/hyperyuri/webapi-db
-    container_name: webapi-mvc-db
+    image: github.com/loo2/business-remote-management-db
+    container_name: brm-mvc-db
     restart: unless-stopped
     tty: true
     ports:
@@ -15,9 +15,9 @@ services:
       POSTGRES_DB: books
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: 123456
-      PGDATA: /var/lib/postgresql/data/webapi-mvc
+      PGDATA: /var/lib/postgresql/data/brm-mvc
     volumes:
-      - webapi-mvc:/var/lib/postgresql/data
+      - brm-mvc:/var/lib/postgresql/data
 
 volumes:
-  webapi-mvc:
+  brm-mvc:

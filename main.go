@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/hyperyuri/webapi-with-go/database"
-	"github.com/hyperyuri/webapi-with-go/server"
+	"github.com/LOO2/business-remote-management-api/database"
+	"github.com/LOO2/business-remote-management-api/server"
 )
 
 func main() {

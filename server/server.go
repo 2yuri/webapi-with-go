@@ -3,8 +3,8 @@ package server
 import (
 	"log"
 
+	"github.com/LOO2/business-remote-management-api/server/routes"
 	"github.com/gin-gonic/gin"
-	"github.com/hyperyuri/webapi-with-go/server/routes"
 )
 
 type Server struct {
@@ -14,7 +14,7 @@ type Server struct {
 
 func NewServer() Server {
 	return Server{
-		port:   "5000",
+		port:   "8080",
 		server: gin.Default(),
 	}
 }

@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/hyperyuri/webapi-with-go/database"
+	"github.com/LOO2/business-remote-management-api/database"
 )
 
 func main() {

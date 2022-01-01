@@ -1,7 +1,7 @@
 package migrations
 
 import (
-	"github.com/hyperyuri/webapi-with-go/models"
+	"github.com/LOO2/business-remote-management-api/models"
 	"gorm.io/gorm"
 )
 

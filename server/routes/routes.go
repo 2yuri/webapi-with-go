@@ -1,8 +1,8 @@
 package routes
 
 import (
+	"github.com/LOO2/business-remote-management-api/controllers"
 	"github.com/gin-gonic/gin"
-	"github.com/hyperyuri/webapi-with-go/controllers"
 )
 
 func ConfigRoutes(router *gin.Engine) *gin.Engine {

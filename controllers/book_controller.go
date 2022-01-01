@@ -3,9 +3,9 @@ package controllers
 import (
 	"strconv"
 
+	"github.com/LOO2/business-remote-management-api/database"
+	"github.com/LOO2/business-remote-management-api/models"
 	"github.com/gin-gonic/gin"
-	"github.com/hyperyuri/webapi-with-go/database"
-	"github.com/hyperyuri/webapi-with-go/models"
 )
 
 func ShowAllBooks(c *gin.Context) {

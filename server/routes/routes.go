@@ -6,7 +6,7 @@ import (
 )
 
 func ConfigRoutes(router *gin.Engine) *gin.Engine {
-	main := router.Group("api/v1")
+	main := router.Group("/")
 	{
 		revenues := main.Group("revenue")
 		{
@@ -15,6 +15,15 @@ func ConfigRoutes(router *gin.Engine) *gin.Engine {
 			revenues.POST("/", controllers.CreateRevenue)
 			revenues.PUT("/", controllers.UpdateRevenue)
 			revenues.DELETE("/:id", controllers.DeleteRevenue)
+		}
+
+		cost_category := main.Group("cost_category")
+		{
+			cost_category.GET("/", controllers.ShowAllCostCategory)
+			cost_category.GET("/:id", controllers.ShowCostCategory)
+			cost_category.POST("/", controllers.CreateCostCategory)
+			cost_category.PUT("/", controllers.UpdateCostCategory)
+			cost_category.DELETE("/:id", controllers.DeleteCostCategory)
 		}
 	}
 

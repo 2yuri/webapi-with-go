@@ -1,6 +1,8 @@
 package controllers
 
 import (
+	"strconv"
+
 	"github.com/LOO2/business-remote-management-api/database"
 	"github.com/LOO2/business-remote-management-api/models"
 	"github.com/gin-gonic/gin"
@@ -14,6 +16,31 @@ func ShowAllRevenues(c *gin.Context) {
 	if err != nil {
 		c.JSON(400, gin.H{
 			"error": "cannot find revenue: " + err.Error(),
+		})
+		return
+	}
+
+	c.JSON(200, p)
+}
+
+func ShowRevenue(c *gin.Context) {
+	id := c.Param("id")
+	newid, err := strconv.Atoi(id)
+
+	if err != nil {
+		c.JSON(400, gin.H{
+			"error": "ID has to be integer",
+		})
+		return
+	}
+
+	db := database.GetDatabase()
+	var p models.Revenue
+	err = db.First(&p, newid).Error
+
+	if err != nil {
+		c.JSON(400, gin.H{
+			"error": "cannot find product by id: " + err.Error(),
 		})
 		return
 	}

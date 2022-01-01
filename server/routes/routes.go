@@ -20,7 +20,9 @@ func ConfigRoutes(router *gin.Engine) *gin.Engine {
 		revenues := main.Group("revenue")
 		{
 			revenues.GET("/", controllers.ShowAllRevenues)
+			revenues.GET("/:id", controllers.ShowRevenue)
 			revenues.POST("/", controllers.CreateRevenue)
+
 		}
 	}
 

@@ -1,11 +1,5 @@
 # WEBAPI with GOLANG
 
-## Acesse no youtube:
-
-<a href="https://www.youtube.com/watch?v=socM14c9Vfk">
-  <img src="https://img.shields.io/badge/-ASSSITA%20AQUI-black?style=for-the-badge&logo=youtube&color=red"></img>
-</>
-
 ### API Docs
 
 - JSON file at docs/insomnia_file.json

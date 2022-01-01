@@ -71,3 +71,28 @@ func CreateRevenue(c *gin.Context) {
 
 	c.JSON(200, p)
 }
+
+func DeleteRevenue(c *gin.Context) {
+	id := c.Param("id")
+	newid, err := strconv.Atoi(id)
+
+	if err != nil {
+		c.JSON(400, gin.H{
+			"error": "ID has to be integer",
+		})
+		return
+	}
+
+	db := database.GetDatabase()
+
+	err = db.Delete(&models.Revenue{}, newid).Error
+
+	if err != nil {
+		c.JSON(400, gin.H{
+			"error": "cannot delete revenue: " + err.Error(),
+		})
+		return
+	}
+
+	c.Status(204)
+}

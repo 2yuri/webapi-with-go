@@ -22,7 +22,7 @@ func ConfigRoutes(router *gin.Engine) *gin.Engine {
 			revenues.GET("/", controllers.ShowAllRevenues)
 			revenues.GET("/:id", controllers.ShowRevenue)
 			revenues.POST("/", controllers.CreateRevenue)
-
+			revenues.DELETE("/:id", controllers.DeleteRevenue)
 		}
 	}
 
